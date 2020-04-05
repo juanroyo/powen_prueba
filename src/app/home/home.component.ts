@@ -13,29 +13,40 @@ export class HomeComponent implements OnInit {
   starships: any[];
   loading = true;
   title = 'Tour of Heroes';
+  public barChartOptions = {
+     scaleShowVerticalLines: false,
+     responsive: true
+   };
 
-   public chart: any = null;
+   public barChartLabels = ['crew', 'costInCredits', 'cargoCapacity', 'hyperdriveRating', 'length', 'maxAtmospheringSpeed', 'passengers'];
+   public barChartType = 'horizontalBar';
+   public barChartLegend = true;
 
-   public list(){
+   public barChartData = [
+     {data: [ ], label: "cosa"},
+
+   ];
+
+   public list() {
      var array: []
-     var chartUpdate = this.chart.data;
-     console.log(chartUpdate)
+     var chartUpdate = this.barChartData;
      chartUpdate.map(function(item, index) {
        return array = item.data;
      })
-
+     array.push(event.target.value)
+     array.sort(function(a, b){return a-b});
+     console.log(array)
+     array.reverse()
      console.log(array)
      console.log(event.target.value)
      //console.log(event.target.attribute)
-     array.push(event.target.value)
-     array.sort()
+
      //chartUpdate.push(event.target.value)
    }
 constructor(private apollo: Apollo) {}
 
 
   ngOnInit() {
-
     this.apollo
       .query<any>({
         query: gql`
@@ -58,46 +69,6 @@ constructor(private apollo: Apollo) {}
           this.loading = loading;
         }
       );
-      this.chart = new Chart('realtime', {
-  			type: 'line',
-  			data: {
-  				labels: [],
-  				datasets: [
-  				  {
-  					label: 'Data',
-  					fill: false,
-  					data: [],
-  					backgroundColor: '#168ede',
-  					borderColor: '#168ede'
-  				  }
-  				]
-  			  },
-  			  options: {
-  				tooltips: {
-  					enabled: false
-  				},
-  				legend: {
-  					display: true,
-  					position: 'bottom',
-  					labels: {
-  						fontColor: 'white'
-  					}
-  				},
-  				scales: {
-  				  yAxes: [{
-  					  ticks: {
-  						  fontColor: "white"
-  					  }
-  				  }],
-  				  xAxes: [{
-  					ticks: {
-  						fontColor: "white",
-  						beginAtZero: true
-  					}
-  				  }]
-  				}
-  			  }
-  		});
   }
 
 }
