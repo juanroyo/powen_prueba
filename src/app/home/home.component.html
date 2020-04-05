@@ -1,0 +1,44 @@
+<p>Books</p>
+<div style="display: block">
+  <h1>hola</h1>
+  <canvas baseChart
+          [datasets]="barChartData"
+          [labels]="barChartLabels"
+          [options]="barChartOptions"
+          [legend]="barChartLegend"
+          [chartType]="barChartType">
+  </canvas>
+</div>
+<div *ngIf="loading">
+  Loading...
+</div>
+
+<table class="table">
+  <thead>
+    <h1>{{title}}</h1>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Crew</th>
+      <th scope="col">Cost in credits</th>
+      <th scope="col">cargo capacity</th>
+      <th scope="col">Hyperdrive Rating</th>
+      <th scope="col">Length</th>
+      <th scope="col">Max atmospheric speed</th>
+      <th scope="col">Passengers</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let starship of starships">
+      <th scope="row"> <button [value]="starship.name" (click)="list()">{{ starship.name }} </button></th>
+      <th scope="row"> <button [value]="starship.crew" (click)="list()">{{ starship.crew }} </button></th>
+      <th scope="row"> <button [value]="starship.costInCredits" (click)="list()">{{ starship.costInCredits }} </button></th>
+      <th scope="row"> <button [value]="starship.cargoCapacity" (click)="list()">{{ starship.cargoCapacity }} </button></th>
+      <th scope="row"> <button [value]="starship.hyperdriveRating" (click)="list()">{{ starship.hyperdriveRating }} </button></th>
+      <th scope="row"> <button [value]="starship.length" (click)="list()">{{ starship.length }} </button></th>
+      <th scope="row"> <button [value]="starship.maxAtmospheringSpeed" (click)="list()">{{ starship.maxAtmospheringSpeed }} </button></th>
+      <th scope="row"> <button [value]="starship.passengers" (click)="list()">{{ starship.passengers }} </button></th>
+      <td></td>
+    </tr>
+    <p></p>
+  </tbody>
+</table>
