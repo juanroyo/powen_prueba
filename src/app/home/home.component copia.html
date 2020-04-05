@@ -1,7 +1,13 @@
 <p>Books</p>
 <div style="display: block">
   <h1>hola</h1>
-  <canvas id="realtime">{{ chartRealtime }}</canvas>
+  <canvas baseChart
+          [datasets]="barChartData"
+          [labels]="barChartLabels"
+          [options]="barChartOptions"
+          [legend]="barChartLegend"
+          [chartType]="barChartType">
+  </canvas>
 </div>
 <div *ngIf="loading">
   Loading...
