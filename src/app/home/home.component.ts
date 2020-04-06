@@ -23,27 +23,27 @@ export class HomeComponent implements OnInit {
    public barChartLegend = true;
 
    public barChartData = [
-     {data: [ ], label: "cosa"},
+     {data: [ ], label: "Points"},
 
    ];
 
-   public list() {
-     var array: []
+   list() {
+     const element = event.currentTarget as HTMLInputElement
+     //const value = element.value
+     var array: any[]
      var chartUpdate = this.barChartData;
      chartUpdate.map(function(item, index) {
        return array = item.data;
      })
-     array.push(event.target.value)
+     array.push(element.value)
      array.sort(function(a, b){return a-b});
-     console.log(array)
      array.reverse()
-     console.log(array)
-     console.log(event.target.value)
-     //console.log(event.target.attribute)
-
-     //chartUpdate.push(event.target.value)
+     array.slice(0,6)
+     console.log(element.value)
    }
-constructor(private apollo: Apollo) {}
+constructor(private apollo: Apollo) {
+  this.starships = [];
+}
 
 
   ngOnInit() {
@@ -63,9 +63,7 @@ constructor(private apollo: Apollo) {}
       })
       .subscribe(
         ({ data, loading }) => {
-          console.log(loading)
           this.starships = data && data.allStarships;
-          console.log(this.starships)
           this.loading = loading;
         }
       );

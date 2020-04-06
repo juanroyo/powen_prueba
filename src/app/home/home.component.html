@@ -1,6 +1,5 @@
-<p>Books</p>
 <div style="display: block">
-  <h1>hola</h1>
+  <h1>Customize your Starship!</h1>
   <canvas baseChart
           [datasets]="barChartData"
           [labels]="barChartLabels"
@@ -15,30 +14,29 @@
 
 <table class="table">
   <thead>
-    <h1>{{title}}</h1>
+      <h1>Choose your characteristics!</h1>
     <tr>
-      <th scope="col">Name</th>
-      <th scope="col">Crew</th>
-      <th scope="col">Cost in credits</th>
-      <th scope="col">cargo capacity</th>
-      <th scope="col">Hyperdrive Rating</th>
-      <th scope="col">Length</th>
-      <th scope="col">Max atmospheric speed</th>
-      <th scope="col">Passengers</th>
+      <th scope="col" class="title1">Name</th>
+      <th scope="col" class="titles">Crew</th>
+      <th scope="col" class="titles">Cost in credits</th>
+      <th scope="col" class="titles">cargo capacity</th>
+      <th scope="col" class="titles">Hyperdrive Rating</th>
+      <th scope="col" class="titles">Length</th>
+      <th scope="col" class="titles">Max atmospheric speed</th>
+      <th scope="col" class="titles">Passengers</th>
     </tr>
   </thead>
   <tbody>
     <tr *ngFor="let starship of starships">
-      <th scope="row"> <button [value]="starship.name" (click)="list()">{{ starship.name }} </button></th>
-      <th scope="row"> <button [value]="starship.crew" (click)="list()">{{ starship.crew }} </button></th>
-      <th scope="row"> <button [value]="starship.costInCredits" (click)="list()">{{ starship.costInCredits }} </button></th>
-      <th scope="row"> <button [value]="starship.cargoCapacity" (click)="list()">{{ starship.cargoCapacity }} </button></th>
-      <th scope="row"> <button [value]="starship.hyperdriveRating" (click)="list()">{{ starship.hyperdriveRating }} </button></th>
-      <th scope="row"> <button [value]="starship.length" (click)="list()">{{ starship.length }} </button></th>
-      <th scope="row"> <button [value]="starship.maxAtmospheringSpeed" (click)="list()">{{ starship.maxAtmospheringSpeed }} </button></th>
-      <th scope="row"> <button [value]="starship.passengers" (click)="list()">{{ starship.passengers }} </button></th>
+      <th scope="row"> {{ starship.name }} </th>
+      <th scope="row"> <button type="button" class="btn btn-light"[value]="starship.crew" (click)="list()">{{ starship.crew }} </button></th>
+      <th scope="row"> <button type="button" class="btn btn-light"[value]="starship.costInCredits" (click)="list()">{{ starship.costInCredits }} </button></th>
+      <th scope="row"> <button type="button" class="btn btn-light"[value]="starship.cargoCapacity" (click)="list()">{{ starship.cargoCapacity }} </button></th>
+      <th scope="row"> <button type="button" class="btn btn-light"[value]="starship.hyperdriveRating" (click)="list()">{{ starship.hyperdriveRating }} </button></th>
+      <th scope="row"> <button type="button" class="btn btn-light"[value]="starship.length" (click)="list()">{{ starship.length }} </button></th>
+      <th scope="row"> <button type="button" class="btn btn-light"[value]="starship.maxAtmospheringSpeed" (click)="list()">{{ starship.maxAtmospheringSpeed }} </button></th>
+      <th scope="row"> <button type="button" class="btn btn-light"[value]="starship.passengers" (click)="list()">{{ starship.passengers }} </button></th>
       <td></td>
     </tr>
-    <p></p>
   </tbody>
 </table>
